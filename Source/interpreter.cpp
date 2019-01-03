@@ -110,10 +110,15 @@ void RunProgram(std::string program) {
 bool CompileProgram(std::string program) {
     int open = 0;
     int close = 0;
+    int depth = 0;
 
     for (std::string::iterator it = program.begin(); it != program.end(); ++it) {
         if (*it == '[') {
             ++open;
+            
+            if(open > depth) {
+                depth = open;
+            }
         }
         else if (*it == ']') {
             ++close;
@@ -121,7 +126,7 @@ bool CompileProgram(std::string program) {
     }
 
     if (open == close) {
-        std::cout << "Compilation success! Depth = " << open << "\n\n";
+        std::cout << "Compilation success! Depth = " << depth << "\n\n";
         return true;
     }
     else if (open > close) {

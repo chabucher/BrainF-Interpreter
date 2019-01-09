@@ -2,7 +2,7 @@
 #include <fstream>
 
 #define CIRCULAR_TAPE true
-#define TAPE_SIZE 2056
+#define TAPE_SIZE 2048
 
 void RunProgram(std::string);
 bool CompileProgram(std::string);
